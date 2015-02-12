@@ -13,6 +13,12 @@ $susy: (
   gutter-position: inside,
 );
 
+*, *:before, *:after {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
 body {
   background: #eee;
   @include container(80%);
@@ -22,6 +28,7 @@ a {
   color:#2980b9;
   text-decoration: none;
 }
+
 
 aside ul {
   padding: 0;
