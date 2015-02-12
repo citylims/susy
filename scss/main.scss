@@ -1,4 +1,17 @@
 @import 'susy';
+@import 'breakpoint';
+
+$small: 500px;
+$medium: 700px;
+$large: 960px;
+
+$susy: (
+  columns: 12,
+  gutters: 1/4,
+  math: fluid,
+  output: float,
+  gutter-position: inside,
+);
 
 body {
   background: #eee;
@@ -24,10 +37,30 @@ aside ul {
 }
 
 
-main {
-  @include span(8 of 12);
+@include breakpoint($small) {
+
+  .main {
+    @include span(8);
+  }
+
+  aside {
+    @include span(4 at 9);
+  }
 }
 
-aside {
-  @include span(4 at 9 of 12);
+@include breakpoint($large) {
+  @include layout(24);
+
+  .main {
+    @include span(21);
+
+    .col1, .col2, .col3 {
+      @include span(1 of 3);
+    }
+
+  }
+
+  aside {
+    @include span(3 at 21);
+  }
 }
